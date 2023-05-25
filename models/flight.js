@@ -27,7 +27,7 @@ const flightSchema = new Schema({
         return oneYearFromNow;
       }
     }
-    // , { timestamps: true
+    // , { timestamps:
   });
 
 //   the Flight model
