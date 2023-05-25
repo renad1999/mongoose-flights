@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
-const flightSchema = new mongoose.Schema({
+const Schema = mongoose.Schema;
+
+const flightSchema = new Schema({
     airline: {
       type: String,
       enum: ['American', 'Southwest', 'United'],
@@ -25,6 +27,7 @@ const flightSchema = new mongoose.Schema({
         return oneYearFromNow;
       }
     }
+    // , { timestamps: true
   });
 
 //   the Flight model
