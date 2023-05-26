@@ -3,9 +3,21 @@ const Flight = require ('../models/flight');
 module.exports = {
     new: newFlight,
     create,
-    index
+    index,
+    show
 };
 
+function show(req, res) {
+    // Find flight by  ID
+    Flight.findById(req.params.id, (err, flight) => {
+      if (err) {
+        res.status(500).send('Failed to fetch flight: ' + err.message);
+      } else {
+        // Rendershow view and passflight data
+        res.render('flights/show', { flight: flight });
+      }
+    });
+  }
 function newFlight(req, res) {
 res.render('flights/new', { errorMsg: ''} );
 }
