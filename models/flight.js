@@ -13,6 +13,9 @@ const destinationSchema = new Schema({
     default: 'N/A'
   }
 })
+
+
+
 const flightSchema = new Schema({
     airline: {
       type: String,

@@ -7,19 +7,14 @@ module.exports = {
     show
 };
 
-function show(req, res) {
-    // Find flight by  ID
-    Flight.findById(req.params.id, (err, flight) => {
-      if (err) {
-        res.status(500).send('Failed to fetch flight: ' + err.message);
-      } else {
-        // Rendershow view and passflight data
-        res.render('flights/show', { flight: flight });
-      }
-    });
-  }
+
+async function show(req, res){
+  const flight = await Flight.findById(req.params.id);
+  res.render('flights/show', { title: 'Mongoose Flights', flight});
+}
+
 function newFlight(req, res) {
-res.render('flights/new', { errorMsg: ''} );
+res.render('flights/new', { title:'Mongoose Movies', errorMsg: ''} );
 }
 
 async function create(req, res){
