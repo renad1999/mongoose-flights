@@ -12,12 +12,11 @@
      </tr>
    </thead>
    <tbody>
-<!-- <% flights.forEach(function(f) { %> -->
-
+    <% flights.forEach(function(f) { %> 
          <tr>
          <td><%= f.airline %></td>
-         <td><%= f.flightNo %></td>
          <td><%= f.airport %></td>
+         <td><a href="/flights/<%= f._id%>"><%= f.flightNo %></a></td>
          <td><%= f.departs%></td>
          <td>
           <a href="/flights/<%= f._id %>">Detail</a>
